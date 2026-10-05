@@ -12,7 +12,7 @@ const imagemFundo = document.getElementById('imagem-fundo');
 // ===== Imagem de fundo =====
 
 imagemFundo.style.backgroundImage =
-    "url('44e40574f3bc91e909c16bb03200f178.jpg')";
+    "url('download.png')";
 
 imagemFundo.classList.add('ativo');
 
