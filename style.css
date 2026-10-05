@@ -1,209 +1,716 @@
-/* Variáveis CSS - facilitar o uso de temas para formatação */
-:root{
-    --gradiente-fundo: linear-gradient(135deg,#a8edea 0%, #fed6e3 100%);
-    --fundo-cartao: #fff;
-    --cor-texto:#2d3748;
-    --cor-primaria:#6c5ce7;
-    --cor-primaria-destaque:#5b4bc4;
-    --cor-borda:#edf2f7;
-    --cor-perigo:#ff7675;
-    --cor-sucesso:#00b894;
-    --cor-concluido:#a0aec0;
+/* ===== CORES DO PROJETO ===== */
+
+:root {
+
+    --gradiente-fundo:
+        linear-gradient(
+            135deg,
+            #ffffff 0%,
+            #d9ff66 50%,
+            #39a900 100%
+        );
+
+    --fundo-cartao:
+        rgba(255, 255, 255, 0.94);
+
+    --cor-texto:
+        #102014;
+
+    --cor-primaria:
+        #8dcc00;
+
+    --cor-primaria-destaque:
+        #5d8f00;
+
+    --cor-borda:
+        #d7e8c4;
+
+    --cor-perigo:
+        #e74c3c;
+
+    --cor-sucesso:
+        #39a900;
+
+    --cor-concluido:
+        #789080;
+
+    --filtro-imagem:
+        rgba(140, 204, 0, 0.18);
 }
 
-/* Modo escuro (ativado via classe no body) */
-body.modo-escuro{
-    --gradiente-fundo:linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
-    --fundo-cartao:#1a202c;
-    --cor-texto:#f7fafc;
-    --cor-borda:#4a5568;
+
+/* ===== MODO ESCURO ===== */
+
+body.modo-escuro {
+
+    --gradiente-fundo:
+        linear-gradient(
+            135deg,
+            #030803 0%,
+            #071d0b 50%,
+            #123d18 100%
+        );
+
+    --fundo-cartao:
+        rgba(5, 15, 7, 0.93);
+
+    --cor-texto:
+        #efffe8;
+
+    --cor-primaria:
+        #b6ff00;
+
+    --cor-primaria-destaque:
+        #7eb500;
+
+    --cor-borda:
+        #214d2b;
+
+    --cor-concluido:
+        #718879;
+
+    --filtro-imagem:
+        rgba(3, 25, 8, 0.60);
 }
 
-*{
+
+/* ===== CONFIGURAÇÃO GERAL ===== */
+
+* {
+
     box-sizing: border-box;
+
     margin: 0;
+
     padding: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    transition: background 0.3s, color 0.3s, border-color 0.3s;
+
+    font-family:
+        'Segoe UI',
+        Tahoma,
+        Geneva,
+        Verdana,
+        sans-serif;
+
+    transition:
+        background 0.3s,
+        color 0.3s,
+        border-color 0.3s,
+        box-shadow 0.3s;
 }
 
-body{
-    background: var(--gradiente-fundo);
+
+/* ===== BODY ===== */
+
+body {
+
+    background:
+        var(--gradiente-fundo);
+
+    color:
+        var(--cor-texto);
+
     min-height: 100vh;
+
     display: flex;
+
     justify-content: center;
+
     align-items: center;
+
     padding: 20px;
+
+    position: relative;
+
+    overflow-x: hidden;
 }
 
-.cartao-aplicacao{
-    background: var(--fundo-cartao);
-    color: var(--cor-texto);
-    width: 100%;
-    max-width: 420px;
-    border-radius: 20px;
-    padding: 30px;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-}
 
-.cabecalho-aplicacao{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 25px;
-}
+/* ===== IMAGEM DE FUNDO ===== */
 
-.cabecalho-aplicacao h1{
-    font-size: 1.5rem;
-    font-weight: 700;
-}
+.imagem-fundo {
 
-.botao-icone{
-    background: transparent;
-    border: none;
-    font-size: 1.2rem;
-    color: var(--cor-texto);
-    cursor: pointer;
-}
+    position: fixed;
 
-.botao-icone:hover{
-    color: var(--cor-primaria);
-}
+    inset: 0;
 
-.caixa-entrada{
-    display: flex;
-    gap: 10px;
-    margin-bottom: 20px;
-}
+    z-index: -2;
 
-input[type="text"]{
-    flex: 1;
-    min-width: 0;
-    padding: 12px 15px;
-    border: 2px solid var(--cor-borda);
-    border-radius: 12px;
-    outline: none;
-    font-size: 0.95rem;
-    background: transparent;
-    color: var(--cor-texto);
-}
+    background-position: center;
 
-input[type="text"]:focus{
-    border-color: var(--cor-primaria);
-}
+    background-size: cover;
 
-input[type="text"].invalido{
-    border-color: var(--cor-perigo);
-}
+    background-repeat: no-repeat;
 
-.botao-principal{
-    background: var(--cor-primaria);
-    color: white;
-    border: none;
-    padding: 12px 18px;
-    border-radius: 12px;
-    font-weight: 600;
-    cursor: pointer;
-    white-space: nowrap;
-    transition: transform 0.1s, background 0.2s;
-}
-
-.botao-principal:hover{
-    background: var(--cor-primaria-destaque);
-    transform: translateY(-2px);
-}
-
-.botao-principal:active{
-    transform: translateY(0);
-}
-
-.mensagem-erro{
-    color: var(--cor-perigo);
-    font-size: 0.85rem;
-    margin: -10px 0 15px 4px;
-}
-
-.mensagem-erro[hidden]{
     display: none;
 }
 
-.lista-tarefas{
-    list-style: none;
-    max-height: 280px;
-    overflow-y: auto;
+
+.imagem-fundo.ativo {
+
+    display: block;
 }
 
-.item-tarefa{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 10px;
-    padding: 12px;
-    background: var(--cor-borda);
-    border-radius: 10px;
-    margin-bottom: 10px;
-    animation: aparecer 0.3s ease;
+
+.imagem-fundo::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        var(--filtro-imagem);
+
+    backdrop-filter:
+        saturate(0.9);
+
+    transition:
+        background 0.3s;
 }
 
-.item-tarefa span{
-    flex: 1;
-    cursor: pointer;
-    word-break: break-word;
+
+body:has(.imagem-fundo.ativo) {
+
+    background:
+        #07120a;
 }
 
-.item-tarefa.concluido span{
-    text-decoration: line-through;
-    color: var(--cor-concluido);
+
+/* ===== CARTÃO ===== */
+
+.cartao-aplicacao {
+
+    background:
+        var(--fundo-cartao);
+
+    color:
+        var(--cor-texto);
+
+    width: 100%;
+
+    max-width: 480px;
+
+    border:
+        1px solid var(--cor-borda);
+
+    border-radius:
+        22px;
+
+    padding:
+        28px;
+
+    box-shadow:
+        0 20px 50px
+        rgba(0, 0, 0, 0.22);
+
+    backdrop-filter:
+        blur(12px);
 }
 
-.acoes-tarefa{
-    display: flex;
-    gap: 8px;
+
+/* ===== CABEÇALHO ===== */
+
+.cabecalho-aplicacao {
+
+    display:
+        flex;
+
+    justify-content:
+        space-between;
+
+    align-items:
+        center;
+
+    margin-bottom:
+        20px;
 }
 
-.botao-acao{
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-size: 1rem;
-    color: var(--cor-texto);
+
+/* ===== ÁREA DO PERFIL ===== */
+
+.perfil-area {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        13px;
 }
 
-.botao-acao.concluir:hover{
-    color: var(--cor-sucesso);
+
+/* ===== FOTO DE PERFIL ===== */
+
+.foto-perfil {
+
+    width:
+        62px;
+
+    height:
+        62px;
+
+    min-width:
+        62px;
+
+    border-radius:
+        50%;
+
+    border:
+        3px solid var(--cor-primaria);
+
+    background:
+        var(--cor-borda);
+
+    display:
+        flex;
+
+    justify-content:
+        center;
+
+    align-items:
+        center;
+
+    overflow:
+        hidden;
+
+    position:
+        relative;
 }
 
-.botao-acao.excluir:hover{
-    color: var(--cor-perigo);
+
+.foto-perfil img {
+
+    width:
+        100%;
+
+    height:
+        100%;
+
+    object-fit:
+        cover;
+
+    display:
+        block;
 }
 
-.lista-vazia{
-    text-align: center;
-    padding: 20px 0;
-    color: var(--cor-concluido);
-    font-size: 0.9rem;
+
+.foto-perfil:hover {
+
+    transform:
+        scale(1.04);
+
+    box-shadow:
+        0 0 0 4px
+        rgba(182, 255, 0, 0.15);
 }
 
-.rodape-aplicacao{
-    margin-top: 15px;
-    font-size: 0.85rem;
-    color: var(--cor-concluido);
-    text-align: center;
+
+/* ===== TÍTULO ===== */
+
+.cabecalho-aplicacao h1 {
+
+    font-size:
+        1.45rem;
+
+    font-weight:
+        700;
 }
 
-@keyframes aparecer{
-    from{
-        opacity: 0;
-        transform: translateY(10px);
+
+.subtitulo {
+
+    color:
+        var(--cor-concluido);
+
+    font-size:
+        0.8rem;
+
+    margin-top:
+        2px;
+}
+
+
+/* ===== BOTÃO TEMA ===== */
+
+.botao-icone {
+
+    background:
+        transparent;
+
+    border:
+        none;
+
+    font-size:
+        1.25rem;
+
+    color:
+        var(--cor-texto);
+
+    cursor:
+        pointer;
+
+    padding:
+        8px;
+}
+
+
+.botao-icone:hover {
+
+    color:
+        var(--cor-primaria);
+
+    transform:
+        rotate(15deg) scale(1.1);
+}
+
+
+/* ===== ENTRADA ===== */
+
+.caixa-entrada {
+
+    display:
+        flex;
+
+    gap:
+        10px;
+
+    margin-bottom:
+        20px;
+}
+
+
+input[type="text"] {
+
+    flex:
+        1;
+
+    min-width:
+        0;
+
+    padding:
+        12px 15px;
+
+    border:
+        2px solid var(--cor-borda);
+
+    border-radius:
+        12px;
+
+    outline:
+        none;
+
+    font-size:
+        0.95rem;
+
+    background:
+        transparent;
+
+    color:
+        var(--cor-texto);
+}
+
+
+input[type="text"]:focus {
+
+    border-color:
+        var(--cor-primaria);
+}
+
+
+input[type="text"].invalido {
+
+    border-color:
+        var(--cor-perigo);
+}
+
+
+/* ===== BOTÃO PRINCIPAL ===== */
+
+.botao-principal {
+
+    background:
+        var(--cor-primaria);
+
+    color:
+        #102000;
+
+    border:
+        none;
+
+    padding:
+        12px 18px;
+
+    border-radius:
+        12px;
+
+    font-weight:
+        700;
+
+    cursor:
+        pointer;
+
+    white-space:
+        nowrap;
+
+    transition:
+        transform 0.1s,
+        background 0.2s;
+}
+
+
+.botao-principal:hover {
+
+    background:
+        var(--cor-primaria-destaque);
+
+    transform:
+        translateY(-2px);
+}
+
+
+.botao-principal:active {
+
+    transform:
+        translateY(0);
+}
+
+
+/* ===== MENSAGEM DE ERRO ===== */
+
+.mensagem-erro {
+
+    color:
+        var(--cor-perigo);
+
+    font-size:
+        0.85rem;
+
+    margin:
+        -10px 0 15px 4px;
+}
+
+
+.mensagem-erro[hidden] {
+
+    display:
+        none;
+}
+
+
+/* ===== LISTA DE TAREFAS ===== */
+
+.lista-tarefas {
+
+    list-style:
+        none;
+
+    max-height:
+        280px;
+
+    overflow-y:
+        auto;
+}
+
+
+/* ===== ITEM DE TAREFA ===== */
+
+.item-tarefa {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+
+    gap:
+        10px;
+
+    padding:
+        12px;
+
+    background:
+        var(--cor-borda);
+
+    border-radius:
+        10px;
+
+    margin-bottom:
+        10px;
+
+    animation:
+        aparecer 0.3s ease;
+}
+
+
+.item-tarefa span {
+
+    flex:
+        1;
+
+    cursor:
+        pointer;
+
+    word-break:
+        break-word;
+}
+
+
+.item-tarefa.concluido span {
+
+    text-decoration:
+        line-through;
+
+    color:
+        var(--cor-concluido);
+}
+
+
+/* ===== AÇÕES DA TAREFA ===== */
+
+.acoes-tarefa {
+
+    display:
+        flex;
+
+    gap:
+        8px;
+}
+
+
+.botao-acao {
+
+    background:
+        none;
+
+    border:
+        none;
+
+    cursor:
+        pointer;
+
+    font-size:
+        1rem;
+
+    color:
+        var(--cor-texto);
+}
+
+
+.botao-acao.concluir:hover {
+
+    color:
+        var(--cor-sucesso);
+}
+
+
+.botao-acao.excluir:hover {
+
+    color:
+        var(--cor-perigo);
+}
+
+
+/* ===== LISTA VAZIA ===== */
+
+.lista-vazia {
+
+    text-align:
+        center;
+
+    padding:
+        20px 0;
+
+    color:
+        var(--cor-concluido);
+
+    font-size:
+        0.9rem;
+}
+
+
+/* ===== RODAPÉ ===== */
+
+.rodape-aplicacao {
+
+    margin-top:
+        15px;
+
+    font-size:
+        0.85rem;
+
+    color:
+        var(--cor-concluido);
+
+    text-align:
+        center;
+}
+
+
+/* ===== ANIMAÇÃO ===== */
+
+@keyframes aparecer {
+
+    from {
+
+        opacity:
+            0;
+
+        transform:
+            translateY(10px);
     }
-    to{
-        opacity: 1;
-        transform: translateY(0);
+
+    to {
+
+        opacity:
+            1;
+
+        transform:
+            translateY(0);
     }
 }
 
-@media (prefers-reduced-motion: reduce){
-    .item-tarefa{
-        animation: none;
+
+/* ===== REDUÇÃO DE MOVIMENTO ===== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    .item-tarefa {
+
+        animation:
+            none !important;
+
+        transition:
+            none !important;
+    }
+}
+
+
+/* ===== RESPONSIVIDADE ===== */
+
+@media (max-width: 520px) {
+
+    .cartao-aplicacao {
+
+        padding:
+            22px;
+    }
+
+    .caixa-entrada {
+
+        flex-direction:
+            column;
+    }
+
+    .botao-principal {
+
+        width:
+            100%;
     }
 }
