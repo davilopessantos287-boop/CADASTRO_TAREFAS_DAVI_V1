@@ -34,8 +34,9 @@
     --cor-concluido:
         #789080;
 
+    /* CAMADA DE COR SOBRE A IMAGEM - DIA */
     --filtro-imagem:
-        rgba(140, 204, 0, 0.18);
+        rgba(180, 255, 70, 0.18);
 }
 
 
@@ -69,8 +70,9 @@ body.modo-escuro {
     --cor-concluido:
         #718879;
 
+    /* CAMADA DE COR SOBRE A IMAGEM - NOITE */
     --filtro-imagem:
-        rgba(3, 25, 8, 0.60);
+        rgba(0, 20, 5, 0.65);
 }
 
 
@@ -151,6 +153,18 @@ body {
 }
 
 
+/*
+    CAMADA DE COR SOBRE A IMAGEM
+
+    No modo claro:
+    camada verde clara/transparente,
+    deixando a imagem com aparência de dia.
+
+    No modo escuro:
+    camada verde/preta,
+    deixando a imagem com aparência de noite.
+*/
+
 .imagem-fundo::after {
 
     content: "";
@@ -162,18 +176,10 @@ body {
     background:
         var(--filtro-imagem);
 
-    backdrop-filter:
-        saturate(0.9);
-
     transition:
         background 0.3s;
-}
 
-
-body:has(.imagem-fundo.ativo) {
-
-    background:
-        #07120a;
+    pointer-events: none;
 }
 
 
